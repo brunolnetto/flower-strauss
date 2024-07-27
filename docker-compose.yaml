@@ -6,7 +6,9 @@ services:
 
   flower:
       image: mher/flower:latest
-      command: ['flower', '--broker=redis://redis:6379', '--port=5555']
+      build:
+        context: .
+        dockerfile: Dockerfile
       ports:
         - "5555:5555"
       depends_on:
